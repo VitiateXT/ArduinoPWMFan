@@ -26,7 +26,7 @@ void loop() {
     float dutyCycle = (float)highTime / cycleTime;
 
     // Amplify duty cycle by 8 and scale to 0-255
-    int outputPWM = constrain(dutyCycle * 4 * 255, 0, 255);
+    int outputPWM = constrain(dutyCycle * 2 * 255, 0, 255);
 
     // Output the amplified PWM signal
     Serial.print("%, Amplified Output PWM: ");
