@@ -38,5 +38,5 @@ void loop() {
     Serial.println(dutyCycle * 100);
 
 
-    delay(800); // Small delay for stability
+    delay(100); // Small delay for stability
 }
