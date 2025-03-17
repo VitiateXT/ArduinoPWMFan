@@ -3,7 +3,7 @@ int PWM_IN_PIN = 5; // Input PWM pin
 int PWM_FAN_STOP = 0; // PWM Duty Cycle to 0
 int PWM_FAN_MAX_SPEED = 255; // PWM duty cycle to maximum
 int AMPLIFY_POWER = 2; // Power of 2 to amplify
-double AMPLIFY_FACTOR = 0.06; // Factor to amplify
+double AMPLIFY_FACTOR = 0.0625; // Factor to amplify
 int DELAY_TIME = 511; // Delay time in milliseconds
 
 void setup() {
