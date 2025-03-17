@@ -2,9 +2,9 @@ int PWM_OUT_PIN = 6; // Output PWM pin
 int PWM_IN_PIN = 5; // Input PWM pin
 int PWM_FAN_STOP = 0; // PWM Duty Cycle to 0
 int PWM_FAN_MAX_SPEED = 255; // PWM duty cycle to maximum
-int AMPLIFY_POWER = 2; // Power of 2 to amplify
-double AMPLIFY_FACTOR = 0.0625; // Factor to amplify
+double AMPLIFY_FACTOR = 2.75; // Factor of 2 to amplify
 int DELAY_TIME = 511; // Delay time in milliseconds
+int PWM_FAN_SPEED_BASE = 25; // Base Fan Speed
 
 void setup() {
     pinMode(PWM_OUT_PIN, OUTPUT);
@@ -31,7 +31,7 @@ void loop() {
     double dutyCycle = (float)highTime / cycleTime;
 
     // Amplify duty cycle with a function and scale to 0-255
-    int outputPWM = constrain(AMPLIFY_FACTOR * pow((dutyCycle * PWM_FAN_MAX_SPEED), AMPLIFY_POWER), PWM_FAN_STOP, PWM_FAN_MAX_SPEED);
+    int outputPWM = constrain(AMPLIFY_FACTOR * (dutyCycle * PWM_FAN_MAX_SPEED) + PWM_FAN_SPEED_BASE, PWM_FAN_STOP, PWM_FAN_MAX_SPEED);
 
     // Output the amplified PWM signal
     Serial.print("%, Amplified Output PWM: ");
